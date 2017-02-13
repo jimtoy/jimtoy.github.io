@@ -1,3 +1,5 @@
-#Welcome to my site
+# Welcome to my site
 
-Hello World 
+- Hello World 
+- Hello Delaware
+- Hello Newark
