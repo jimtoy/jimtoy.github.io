@@ -1,4 +1,5 @@
 # My Personal Website
+Personal
 
 ## Installation
     npm install
