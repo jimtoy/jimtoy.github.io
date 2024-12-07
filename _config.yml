@@ -1,8 +1,5 @@
 theme: minima
 minima:
-  author:
-    name: Jim Toy
-    email: "jim.toy@gmail.com"
   social_links:
     - { platform: github,  user_url: "https://github.com/jimtoy" }
     - { platform: twitter, user_url: "https://x.com/jim_toy" }
