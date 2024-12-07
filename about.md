@@ -1,5 +1,5 @@
 ---
-title: Home
+title: About
 ---
 <style>
   .footer {
