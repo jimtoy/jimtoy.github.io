@@ -1,5 +1,5 @@
 ---
-title: Welcome to my blog
+title: Resume
 ---
 <style>
   .footer {
@@ -7,5 +7,4 @@ title: Welcome to my blog
   }
 </style>
 
-## About Me
-Hi this is my new page!!!!!
+
