@@ -1,3 +1,8 @@
 theme: minima
-exclude:
-  - _includes/footer.html
+author:
+  name: Jim Toy
+  email: "jim.toy@gmail.com"
+minima:
+  social_links:
+    - { platform: github,  user_url: "https://github.com/jimtoy" }
+    - { platform: twitter, user_url: "https://x.com/jim_toy" }
