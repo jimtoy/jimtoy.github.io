@@ -101,3 +101,9 @@ typings/
 
 # dotenv environment variables file
 .env
+
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor
