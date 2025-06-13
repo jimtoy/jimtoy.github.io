@@ -4,10 +4,10 @@ title: Resume
 
 ## Contact Information
 - **Name:** Jim Toy
-- **Email:** jim.toy@gmail.com
+- **Email:** [jim.toy@gmail.com](mailto:jim.toy@gmail.com)
 - **Location:** Newark, DE, USA
-- **LinkedIn:** https://www.linkedin.com/in/jim-toy-591b051/
-- **GitHub:** https://github.com/jimtoy
+- **LinkedIn:** [Jim Toy](https://www.linkedin.com/in/jim-toy-591b051/)
+- **GitHub:** [jimtoy](https://github.com/jimtoy)
 
 ## Professional Summary
 A concise 2-3 sentence overview highlighting your professional background, years of experience, key skills, and career goals. This should be tailored to the specific roles you're targeting.
