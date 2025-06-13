@@ -1,5 +1,15 @@
 ---
 title: Resume
+# Projects Examples
+# ### [Project Name]
+#  *[GitHub/Demo Link]* | *[Month Year - Month Year]*
+#- Developed [brief description of what the project is/does]
+#- Implemented [specific technologies/methodologies used]
+#- Resulted in [specific outcomes or learning experiences]
+#
+#### [Project Name]
+#  *[GitHub/Demo Link]* | *[Month Year - Month Year]*
+#- [Brief description and key achievements]
 ---
 
 ## Contact Information
@@ -15,31 +25,27 @@ A concise 2-3 sentence overview highlighting your professional background, years
 ## Work Experience
 
 ### JPMorgan Chase | Wilmington, DE
-**Vice President** | *September 2006—Present]*
-- Accomplished [X] by implementing [Y], which led to [Z specific, quantifiable result]
-- Developed and maintained [specific systems/applications/processes], resulting in [specific improvements]
-- Led a team of [X] people to deliver [specific project/outcome] on time and under budget
-- Collaborated with cross-functional teams to [specific achievement]
+**Vice President** | *September 2006—Present*
 
 ### Chariot Solutions | Fort Washington, PA
-**Consultant** | *January 2006—September 2006]*
+**Consultant** | *January 2006—September 2006*
 - Built an enterprise client/server system for food distribution using Java Swing, J2EE, and Sybase
 - Developed business modules using custom MVC framework and EJB architecture
 - Authored technical specifications and conducted peer reviews of documentation and test plans
 
 ### Diamond Technologies, Inc | Wilmington, DE
-**Consultant** | *October 2000—January 2006]*
+**Consultant** | *October 2000—January 2006*
 - Led full lifecycle software development projects as technical consultant for major clients including AstraZeneca and Delaware state agencies 
 - Delivered end-to-end solutions from requirements gathering through deployment and maintenance
 
 ### Rollins Leasing Corp | Wilmington, DE
-**Senior Programmer Analyst** | *May 1997—October 2000]*
+**Senior Programmer Analyst** | *May 1997—October 2000*
 - Designed and maintained business-critical applications for fuel automation, billing, and rental systems
 - Led a software development team, delegating modifications across multiple languages (Visual Basic, C++, Clipper)
 - Collaborated with corporate and field offices to deliver custom business solutions, including end-user training and documentation
 
 ### Rollins Leasing Corp | Wilmington, DE
-**Help Desk Analyst,** | *April 1995—May 1997]*
+**Help Desk Analyst** | *April 1995—May 1997*
 
 ## Education
 
@@ -63,15 +69,12 @@ A concise 2-3 sentence overview highlighting your professional background, years
 
 ## Projects
 
-### [Project Name]
-*[GitHub/Demo Link]* | *[Month Year - Month Year]*
-- Developed [brief description of what the project is/does]
-- Implemented [specific technologies/methodologies used]
-- Resulted in [specific outcomes or learning experiences]
-
-### [Project Name]
-*[GitHub/Demo Link]* | *[Month Year - Month Year]*
-- [Brief description and key achievements]
+#### Blackout System
+**Software Developer Lead** 
+- Provided technical oversight for the Blackout system, a business process used when other production systems are unavailable
+- Performed code reviews, created designs and estimates for modular development to replace legacy "all or nothing" solution
+- Improved business up-time and customer experience with JPMorgan Chase call centers through modular system design
+- **Technologies:** Java, Servlets, Weblogic 10, Oracle 9i, JDBC, SQL, WebWork
 
 ## Certifications
 - **[Certification Name]** | *[Issuing Organization]* | *[Date Obtained/Expiration]*
