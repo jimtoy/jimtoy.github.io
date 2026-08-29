@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { CAREER_START, formatUptime } from "../lib/uptime";
 
 interface Props {
 	title: string;
@@ -15,18 +16,6 @@ const {
 
 const pageTitle = `${title} · Jim Toy`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-
-const CAREER_START = new Date("1995-04-01T00:00:00Z");
-
-function formatUptime(ms: number) {
-	const totalSeconds = Math.floor(ms / 1000);
-	const years = Math.floor(totalSeconds / (365.25 * 24 * 3600));
-	const days = Math.floor((totalSeconds - years * 365.25 * 24 * 3600) / (24 * 3600));
-	const hours = Math.floor((totalSeconds % (24 * 3600)) / 3600);
-	const minutes = Math.floor((totalSeconds % 3600) / 60);
-	const seconds = totalSeconds % 60;
-	return `${years}y ${days}d ${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
-}
 
 const initialUptime = formatUptime(Date.now() - CAREER_START.getTime());
 const uptimeYears = Math.floor(
@@ -85,7 +74,7 @@ const currentPath = Astro.url.pathname;
 					<span class="text-signal" aria-hidden="true">●</span>
 					<span>nominal</span>
 					<span class="text-line" aria-hidden="true">/</span>
-					<span aria-hidden="true" id="uptime">{initialUptime}</span>
+					<span aria-hidden="true" id="uptime" data-career-start={CAREER_START.toISOString()}>{initialUptime}</span>
 					<span class="sr-only">
 						{uptimeYears}+ years of professional software experience, and counting.
 					</span>
@@ -136,25 +125,17 @@ const currentPath = Astro.url.pathname;
 			</div>
 		</footer>
 
-		<script is:inline define:vars={{ careerStart: CAREER_START.toISOString() }}>
-			const start = new Date(careerStart).getTime();
+		<script>
+			import { formatUptime } from "../lib/uptime";
+
 			const el = document.getElementById("uptime");
+			const start = new Date(el?.dataset.careerStart ?? 0).getTime();
 			const prefersReducedMotion = window.matchMedia(
 				"(prefers-reduced-motion: reduce)",
 			).matches;
 
-			function format(ms) {
-				const totalSeconds = Math.floor(ms / 1000);
-				const years = Math.floor(totalSeconds / (365.25 * 24 * 3600));
-				const days = Math.floor((totalSeconds - years * 365.25 * 24 * 3600) / (24 * 3600));
-				const hours = Math.floor((totalSeconds % (24 * 3600)) / 3600);
-				const minutes = Math.floor((totalSeconds % 3600) / 60);
-				const seconds = totalSeconds % 60;
-				return `${years}y ${days}d ${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
-			}
-
 			function tick() {
-				el.textContent = format(Date.now() - start);
+				el.textContent = formatUptime(Date.now() - start);
 			}
 
 			if (el && !prefersReducedMotion) {

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection, render } from "astro:content";
+import { formatDateTime } from "../../lib/posts";
 
 const notes = (await getCollection("notes")).sort(
 	(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
@@ -21,14 +22,7 @@ const rendered = await Promise.all(
 			rendered.map(({ note, Content }) => (
 				<li class="py-6 first:pt-0">
 					<div class="font-mono text-xs uppercase tracking-wide text-ash">
-						{note.data.date.toLocaleString("en-US", {
-							year: "numeric",
-							month: "long",
-							day: "numeric",
-							hour: "numeric",
-							minute: "2-digit",
-							timeZone: "UTC",
-						})}
+						{formatDateTime(note.data.date)}
 					</div>
 					{note.data.title && <h2 class="mt-1 text-lg">{note.data.title}</h2>}
 					<div class="prose mt-2 max-w-none">
