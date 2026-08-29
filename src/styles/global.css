@@ -75,6 +75,19 @@ body {
 	}
 }
 
+@media print {
+	:root {
+		--ink: #ffffff;
+		--panel: #ffffff;
+		--line: #cccccc;
+		--paper: #111111;
+		--ash: #444444;
+		--brass: #111111;
+		--signal: #111111;
+		--alert: #111111;
+	}
+}
+
 .prose {
 	--tw-prose-body: var(--paper);
 	--tw-prose-headings: var(--brass);
