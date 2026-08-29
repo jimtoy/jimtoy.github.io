@@ -1,8 +1,123 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { resume } from "../../data/resume";
 ---
 
-<BaseLayout title="Resume">
-	<h1 class="font-mono text-2xl text-brass tracking-tight">Resume</h1>
-	<p class="mt-4 text-ash">Styled resume coming soon.</p>
+<BaseLayout title="Resume" description={`Resume for ${resume.name}.`}>
+	<div class="flex items-start justify-between gap-4 print:hidden">
+		<h1 class="font-mono text-2xl text-brass tracking-tight">Resume</h1>
+		<button
+			id="print-resume"
+			type="button"
+			class="font-mono text-xs uppercase tracking-wide text-ash hover:text-brass transition-colors border border-line rounded px-3 py-1.5"
+		>
+			print / save pdf
+		</button>
+	</div>
+
+	<div class="mt-8 print:mt-0">
+		<h2 class="font-serif text-xl font-semibold">{resume.name}</h2>
+		<p class="mt-1 text-ash font-mono text-xs uppercase tracking-wide">
+			{resume.location}
+			<span aria-hidden="true"> · </span>
+			<a href={`mailto:${resume.contact.email}`} class="hover:text-brass transition-colors">
+				{resume.contact.email}
+			</a>
+			<span aria-hidden="true"> · </span>
+			<a href={resume.contact.linkedin} class="hover:text-brass transition-colors">linkedin</a>
+			<span aria-hidden="true"> · </span>
+			<a href={resume.contact.github} class="hover:text-brass transition-colors">github</a>
+		</p>
+	</div>
+
+	<section class="mt-10">
+		<h2 class="font-mono text-xs uppercase tracking-wide text-brass border-b border-line pb-2">
+			Work Experience
+		</h2>
+		<div class="mt-4 space-y-6">
+			{
+				resume.experience.map((job) => (
+					<div>
+						<div class="flex flex-wrap items-baseline justify-between gap-x-4">
+							<h3 class="font-serif font-semibold">
+								{job.title} · {job.company}
+							</h3>
+							<span class="font-mono text-xs text-ash">{job.dates}</span>
+						</div>
+						<p class="text-ash text-sm">{job.location}</p>
+						{job.bullets.length > 0 && (
+							<ul class="mt-2 list-disc pl-5 space-y-1">
+								{job.bullets.map((bullet) => (
+									<li>{bullet}</li>
+								))}
+							</ul>
+						)}
+					</div>
+				))
+			}
+		</div>
+	</section>
+
+	<section class="mt-10">
+		<h2 class="font-mono text-xs uppercase tracking-wide text-brass border-b border-line pb-2">
+			Projects
+		</h2>
+		<div class="mt-4 space-y-6">
+			{
+				resume.projects.map((project) => (
+					<div>
+						<h3 class="font-serif font-semibold">
+							{project.name} · {project.role}
+						</h3>
+						<ul class="mt-2 list-disc pl-5 space-y-1">
+							{project.bullets.map((bullet) => (
+								<li>{bullet}</li>
+							))}
+						</ul>
+						<p class="mt-2 font-mono text-xs text-ash">{project.technologies.join(" · ")}</p>
+					</div>
+				))
+			}
+		</div>
+	</section>
+
+	<section class="mt-10">
+		<h2 class="font-mono text-xs uppercase tracking-wide text-brass border-b border-line pb-2">
+			Education
+		</h2>
+		<div class="mt-4 space-y-2">
+			{
+				resume.education.map((school) => (
+					<div class="flex flex-wrap items-baseline justify-between gap-x-4">
+						<h3 class="font-serif font-semibold">
+							{school.degree} · {school.school}
+						</h3>
+						<span class="font-mono text-xs text-ash">{school.year}</span>
+					</div>
+				))
+			}
+		</div>
+	</section>
+
+	<section class="mt-10 mb-10">
+		<h2 class="font-mono text-xs uppercase tracking-wide text-brass border-b border-line pb-2">
+			Skills
+		</h2>
+		<div class="mt-4 space-y-2">
+			{
+				Object.entries(resume.skills.technical).map(([category, items]) => (
+					<p>
+						<span class="font-semibold">{category}:</span> {items.join(", ")}
+					</p>
+				))
+			}
+			<p>
+				<span class="font-semibold">Soft Skills:</span> {resume.skills.soft.join(", ")}
+			</p>
+		</div>
+	</section>
 </BaseLayout>
+
+<script>
+	document.getElementById("print-resume")?.addEventListener("click", () => window.print());
+</script>
