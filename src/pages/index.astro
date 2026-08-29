@@ -1,8 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { resume } from "../data/resume";
-import { getCollection } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
 import { getPublishedPosts, formatDate } from "../lib/posts";
+
+const resume = (await getEntry("resume", "resume")).data;
 
 const latestPost = (await getPublishedPosts())[0];
 
