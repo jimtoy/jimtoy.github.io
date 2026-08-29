@@ -10,7 +10,7 @@ interface Props {
 
 const {
 	title,
-	description = "Jim Toy — writing, notes, and resume.",
+	description = "Jim Toy — writing and resume.",
 	type = "website",
 } = Astro.props;
 
@@ -25,7 +25,6 @@ const uptimeYears = Math.floor(
 const navItems = [
 	{ href: "/", label: "home" },
 	{ href: "/blog/", label: "writing" },
-	{ href: "/notes/", label: "notes" },
 	{ href: "/resume/", label: "resume" },
 ];
 

@@ -12,16 +12,6 @@ const dateFormat: Intl.DateTimeFormatOptions = {
 	timeZone: "UTC",
 };
 
-const dateTimeFormat: Intl.DateTimeFormatOptions = {
-	...dateFormat,
-	hour: "numeric",
-	minute: "2-digit",
-};
-
 export function formatDate(date: Date) {
 	return date.toLocaleDateString("en-US", dateFormat);
-}
-
-export function formatDateTime(date: Date) {
-	return date.toLocaleString("en-US", dateTimeFormat);
 }
