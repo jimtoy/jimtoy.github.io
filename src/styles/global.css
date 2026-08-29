@@ -33,19 +33,6 @@
 	--alert: #a8432f;
 }
 
-@media (prefers-color-scheme: light) {
-	:root:not([data-theme="dark"]) {
-		--ink: #f1ece0;
-		--panel: #e7e0cf;
-		--line: #cfc6ae;
-		--paper: #16213e;
-		--ash: #5b6478;
-		--brass: #9c7530;
-		--signal: #3f8159;
-		--alert: #a8432f;
-	}
-}
-
 @theme inline {
 	--color-ink: var(--ink);
 	--color-panel: var(--panel);
