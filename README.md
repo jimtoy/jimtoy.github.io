@@ -10,7 +10,11 @@ No Ruby, no gems — just Node.
 
 ```
 npm install
-npm run dev       # local dev server with hot reload
-npm run build     # static build to dist/
-npm run preview   # serve the production build locally
+npm run dev
+npm run build
+npm run preview
 ```
+
+- `dev` — local dev server with hot reload
+- `build` — static build to `dist/`
+- `preview` — serve the production build locally
