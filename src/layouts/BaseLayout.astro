@@ -4,9 +4,17 @@ import "../styles/global.css";
 interface Props {
 	title: string;
 	description?: string;
+	type?: "website" | "article";
 }
 
-const { title, description = "Jim Toy — writing, notes, and resume." } = Astro.props;
+const {
+	title,
+	description = "Jim Toy — writing, notes, and resume.",
+	type = "website",
+} = Astro.props;
+
+const pageTitle = `${title} · Jim Toy`;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const CAREER_START = new Date("1995-04-01T00:00:00Z");
 
@@ -47,7 +55,19 @@ const currentPath = Astro.url.pathname;
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
-		<title>{title} · Jim Toy</title>
+		<link rel="canonical" href={canonicalURL} />
+		<title>{pageTitle}</title>
+
+		<meta property="og:type" content={type} />
+		<meta property="og:site_name" content="Jim Toy" />
+		<meta property="og:title" content={pageTitle} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonicalURL} />
+
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:site" content="@jim_toy" />
+		<meta name="twitter:title" content={pageTitle} />
+		<meta name="twitter:description" content={description} />
 
 		<script is:inline>
 			(function () {
