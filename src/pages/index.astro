@@ -1,18 +1,8 @@
 ---
-
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Jim Toy</title>
-	</head>
-	<body>
-		<h1>Jim Toy</h1>
-		<p>Site rebuild in progress.</p>
-	</body>
-</html>
+<BaseLayout title="Home">
+	<h1 class="font-mono text-2xl text-brass tracking-tight">Jim Toy</h1>
+	<p class="mt-4 text-ash">Site rebuild in progress. Full bio, writing, and notes coming soon.</p>
+</BaseLayout>
