@@ -1,0 +1,75 @@
+@import "tailwindcss";
+@import "@fontsource/ibm-plex-mono/400.css";
+@import "@fontsource/ibm-plex-mono/500.css";
+@import "@fontsource/ibm-plex-mono/600.css";
+@import "@fontsource/source-serif-4/400.css";
+@import "@fontsource/source-serif-4/400-italic.css";
+@import "@fontsource/source-serif-4/600.css";
+
+/*
+  Ops-console / uptime-ledger identity: dark navy is the designed default.
+  Light theme is an aged-paper alternate, not an afterthought.
+*/
+:root {
+	--ink: #12213a;
+	--panel: #1b2c4a;
+	--line: #2c3f60;
+	--paper: #f0ebdd;
+	--ash: #9aa4bd;
+	--brass: #c99a44;
+	--signal: #6bbf8f;
+	--alert: #d97f6c;
+}
+
+:root[data-theme="light"] {
+	--ink: #f1ece0;
+	--panel: #e7e0cf;
+	--line: #cfc6ae;
+	--paper: #16213e;
+	--ash: #5b6478;
+	--brass: #9c7530;
+	--signal: #3f8159;
+	--alert: #a8432f;
+}
+
+@media (prefers-color-scheme: light) {
+	:root:not([data-theme="dark"]) {
+		--ink: #f1ece0;
+		--panel: #e7e0cf;
+		--line: #cfc6ae;
+		--paper: #16213e;
+		--ash: #5b6478;
+		--brass: #9c7530;
+		--signal: #3f8159;
+		--alert: #a8432f;
+	}
+}
+
+@theme inline {
+	--color-ink: var(--ink);
+	--color-panel: var(--panel);
+	--color-line: var(--line);
+	--color-paper: var(--paper);
+	--color-ash: var(--ash);
+	--color-brass: var(--brass);
+	--color-signal: var(--signal);
+	--color-alert: var(--alert);
+	--font-mono: "IBM Plex Mono", ui-monospace, monospace;
+	--font-serif: "Source Serif 4", Georgia, serif;
+}
+
+html {
+	color-scheme: dark light;
+}
+
+body {
+	background-color: var(--ink);
+	color: var(--paper);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	* {
+		animation-duration: 0.001ms !important;
+		transition-duration: 0.001ms !important;
+	}
+}
