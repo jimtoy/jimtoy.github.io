@@ -1,8 +1,83 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { resume } from "../data/resume";
+import { getCollection } from "astro:content";
+
+const latestPost = (await getCollection("blog", ({ data }) => !data.draft)).sort(
+	(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+)[0];
+
+const latestNote = (await getCollection("notes")).sort(
+	(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+)[0];
 ---
 
 <BaseLayout title="Home">
-	<h1 class="font-mono text-2xl text-brass tracking-tight">Jim Toy</h1>
-	<p class="mt-4 text-ash">Site rebuild in progress. Full bio, writing, and notes coming soon.</p>
+	<h1 class="font-mono text-2xl text-brass tracking-tight">{resume.name}</h1>
+	<p class="mt-2 text-ash italic">
+		"Age is an issue of mind over matter. If you don't mind, it doesn't matter." — Twain
+	</p>
+	<p class="mt-4 max-w-prose">
+		{resume.experience[0].title} at {resume.experience[0].company}, building enterprise software
+		for {new Date().getFullYear() - 1995}+ years. Based in {resume.location}. See the full{" "}
+		<a href="/resume/" class="text-brass hover:underline">resume</a>.
+	</p>
+
+	<section class="mt-10">
+		<h2 class="font-mono text-xs uppercase tracking-wide text-brass border-b border-line pb-2">
+			Latest writing
+		</h2>
+		<div class="mt-4">
+			{
+				latestPost ? (
+					<a href={`/blog/${latestPost.id}/`} class="group block">
+						<div class="font-mono text-xs uppercase tracking-wide text-ash">
+							{latestPost.data.date.toLocaleDateString("en-US", {
+								year: "numeric",
+								month: "long",
+								day: "numeric",
+								timeZone: "UTC",
+							})}
+						</div>
+						<h3 class="mt-1 text-lg group-hover:text-brass transition-colors">
+							{latestPost.data.title}
+						</h3>
+					</a>
+				) : (
+					<p class="text-ash">Nothing published yet.</p>
+				)
+			}
+			<a href="/blog/" class="mt-3 inline-block font-mono text-xs uppercase tracking-wide text-ash hover:text-brass transition-colors">
+				view all writing →
+			</a>
+		</div>
+	</section>
+
+	<section class="mt-10">
+		<h2 class="font-mono text-xs uppercase tracking-wide text-brass border-b border-line pb-2">
+			Latest notes
+		</h2>
+		<div class="mt-4">
+			{
+				latestNote ? (
+					<div>
+						<div class="font-mono text-xs uppercase tracking-wide text-ash">
+							{latestNote.data.date.toLocaleString("en-US", {
+								year: "numeric",
+								month: "long",
+								day: "numeric",
+								timeZone: "UTC",
+							})}
+						</div>
+						{latestNote.data.title && <h3 class="mt-1 text-lg">{latestNote.data.title}</h3>}
+					</div>
+				) : (
+					<p class="text-ash">Nothing posted yet.</p>
+				)
+			}
+			<a href="/notes/" class="mt-3 inline-block font-mono text-xs uppercase tracking-wide text-ash hover:text-brass transition-colors">
+				view all notes →
+			</a>
+		</div>
+	</section>
 </BaseLayout>
