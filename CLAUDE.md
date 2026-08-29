@@ -31,6 +31,12 @@ content reflects a deliberate "generic for now" placeholder pass —
 Jim plans to fill in his actual recent JPMorgan Chase
 accomplishments later rather than have Claude invent specifics.
 
+Blog post filenames use a `YYYY-MM-DD-title.md` prefix (matching the
+`date` in frontmatter) so files sort chronologically on disk, e.g.
+`src/content/blog/2026-08-29-rebuilding-this-site.md`. The date
+prefix is stripped from the URL slug via `generateId` in
+`content.config.ts`, so it never appears in the actual URL.
+
 ## Development
 
 When starting the dev server, use background mode:
