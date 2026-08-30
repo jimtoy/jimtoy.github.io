@@ -122,14 +122,34 @@ const isDev = import.meta.env.DEV;
 		<footer
 			class="border-t border-line font-mono text-xs uppercase tracking-wide text-ash print:hidden"
 		>
-			<div class="mx-auto max-w-3xl px-4 py-4 flex flex-wrap justify-between gap-2">
+			<div class="mx-auto max-w-3xl px-4 py-4 flex flex-wrap items-center justify-between gap-2">
 				<span>jimtoy.github.io · est. 1995</span>
-				<a
-					href="https://github.com/jimtoy/jimtoy.github.io"
-					class="hover:text-brass transition-colors"
-				>
-					view source
-				</a>
+				<div class="flex items-center gap-4">
+					<a
+						href="https://www.linkedin.com/in/jim-toy-591b051/"
+						aria-label="LinkedIn"
+						class="hover:text-brass transition-colors"
+					>
+						<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+							<path d="M4.98 3.5a2.5 2.5 0 1 1 0 5.001 2.5 2.5 0 0 1 0-5.001ZM3 9.5h4V21H3V9.5Zm7 0h3.8v1.57h.05c.53-.98 1.83-2.02 3.77-2.02 4.03 0 4.78 2.55 4.78 5.87V21h-4v-5.5c0-1.31-.02-3-1.85-3-1.85 0-2.13 1.4-2.13 2.9V21h-4V9.5Z" />
+						</svg>
+					</a>
+					<a
+						href="https://x.com/jim_toy"
+						aria-label="X (Twitter)"
+						class="hover:text-brass transition-colors"
+					>
+						<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+							<path d="M13.9 10.72 21.2 2.5h-1.73l-6.34 7.14L8.1 2.5H2.3l7.66 10.94L2.3 21.5h1.73l6.7-7.55 5.34 7.55h5.8l-7.97-10.78Zm-2.37 2.67-.78-1.1L4.55 3.75h2.66l4.98 6.98.78 1.1 6.48 9.08h-2.66l-5.26-7.52Z" />
+						</svg>
+					</a>
+					<a
+						href="https://github.com/jimtoy/jimtoy.github.io"
+						class="hover:text-brass transition-colors"
+					>
+						view source
+					</a>
+				</div>
 			</div>
 		</footer>
 
